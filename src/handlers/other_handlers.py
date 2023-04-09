@@ -19,10 +19,13 @@ async def gpt(message: Message):
     answer = response['choices'][0]['message']['content']
     if answer:
         await message.answer(text=answer)
+    else:
+        message.answer(text="Smt went wrong, try to ask again")
 
 
 @router.message()
 async def send_answer(message: Message):
     if message.text:
         await gpt(message)
-        # await message.answer(text=answer)
+    else:
+        await message.reply("It is not a test message, probably 🙊")
