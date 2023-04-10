@@ -30,9 +30,9 @@ async def gpt(message: Message):
             await add_message_to_context(message.from_user.id, answer, "assistant")
             await message.answer(text=answer)
         else:
-            message.answer(text="Smt went wrong, try to ask again")
+            await message.answer(text="Smt went wrong, try to ask again")
     except:
-        message.answer(
+        await message.answer(
             text="I amfucking overloaded, probably. Try ask me the question later.")
 
 
