@@ -8,10 +8,9 @@ router: Router = Router()
 
 
 async def set_clean_user_context(id):
-    if not users_contexts.get(id):
-        users_contexts[id] = [
-            {"role": "system", "content": "You are a helpful assistant."}
-        ]
+    users_contexts[id] = [
+        {"role": "system", "content": "You are a helpful assistant."}
+    ]
 
 
 @router.message(CommandStart())
