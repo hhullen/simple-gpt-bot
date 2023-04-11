@@ -34,6 +34,9 @@ async def gpt(message: Message):
     except BaseException as ex_:
         await message.answer(
             text=f"Exception occurs: {ex_}")
+    except:
+        await message.answer(
+            text=f"Some exception occurs:")
 
 
 @router.message()
