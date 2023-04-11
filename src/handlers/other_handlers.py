@@ -18,8 +18,8 @@ async def add_message_to_context(id, message, role):
 
 async def gpt(message: Message):
 
-    openai.api_key = os.environ['OPEN_AI_KEY']
     try:
+        openai.api_key = os.environ['OPEN_AI_KEY']
         await add_message_to_context(message.from_user.id, message.text, "user")
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0301",
@@ -31,9 +31,9 @@ async def gpt(message: Message):
             await message.answer(text=answer)
         else:
             await message.answer(text="Smt went wrong, try to ask again")
-    except:
+    except BaseException as ex_:
         await message.answer(
-            text="I amfucking overloaded, probably. Try ask me the question later.")
+            text=f"Exception occurs: {ex_}")
 
 
 @router.message()
