@@ -22,7 +22,7 @@ async def gpt(message: Message):
         openai.api_key = os.environ['OPEN_AI_KEY']
         await add_message_to_context(message.from_user.id, message.text, "user")
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-0301",
+            model="gpt-3.5-turbo-0613",
             messages=users_contexts[message.from_user.id]
         )
         answer = response['choices'][0]['message']['content']
