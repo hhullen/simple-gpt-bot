@@ -1,5 +1,5 @@
 from aiogram import Router
-from aiogram.filters import CommandStart, Command, Text
+from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, ReplyKeyboardRemove
 from storage import users_contexts
 
